@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UMBook - Casos de Uso (UC-5, UC-6, UC-7)</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header / Navbar -->
+        <header class="navbar">
+            <div class="logo">
+                <span class="logo-icon">🌐</span>
+                <span class="logo-text">UMBook</span>
+            </div>
+            <nav class="nav-tabs">
+                <button class="nav-btn active" data-tab="buscador">
+                    🔍 BuscadorUI (UC-7)
+                </button>
+                <button class="nav-btn" data-tab="perfil">
+                    👤 PerfilUsuarioUI (UC-6)
+                </button>
+                <button class="nav-btn" data-tab="admin">
+                    🛡️ UIAdminUsuarios (UC-5)
+                </button>
+            </nav>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="content-area">
+            
+            <!-- UC-7: BuscadorUI -->
+            <section id="tab-buscador" class="tab-content active">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>CU-7: Buscar Usuarios</h2>
+                        <p class="subtitle">Interfaz: <code>BuscadorUI</code> | Endpoint: <code>GET /usuarios/buscar?nombre=X&apellido=Y</code></p>
+                    </div>
+                    <form id="form-buscar" class="search-form">
+                        <div class="form-group">
+                            <label for="search-nombre">Nombre</label>
+                            <input type="text" id="search-nombre" placeholder="Ingrese nombre...">
+                        </div>
+                        <div class="form-group">
+                            <label for="search-apellido">Apellido</label>
+                            <input type="text" id="search-apellido" placeholder="Ingrese apellido...">
+                        </div>
+                        <button type="submit" class="btn btn-primary">🔍 Buscar Usuarios</button>
+                    </form>
+
+                    <div id="results-buscar" class="results-container">
+                        <p class="empty-state">Ingrese al menos un criterio de búsqueda y haga clic en Buscar.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- UC-6: PerfilUsuarioUI -->
+            <section id="tab-perfil" class="tab-content">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>CU-6: Enviar Solicitud de Amistad</h2>
+                        <p class="subtitle">Interfaz: <code>PerfilUsuarioUI</code> | Endpoint: <code>POST /solicitudes/enviar?destinatarioId=X</code></p>
+                    </div>
+                    <form id="form-solicitud" class="solicitud-form">
+                        <div class="form-group">
+                            <label for="remitente-id">ID Remitente (Usuario Logueado)</label>
+                            <input type="number" id="remitente-id" value="1" min="1" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="destinatario-id">ID Destinatario</label>
+                            <input type="number" id="destinatario-id" placeholder="ID del usuario a agregar" min="1" required>
+                        </div>
+                        <button type="submit" class="btn btn-success">➕ Enviar Solicitud de Amistad</button>
+                    </form>
+
+                    <div id="response-solicitud" class="response-box"></div>
+                </div>
+            </section>
+
+            <!-- UC-5: UIAdminUsuarios -->
+            <section id="tab-admin" class="tab-content">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>CU-5: Deshabilitar Usuario</h2>
+                        <p class="subtitle">Interfaz: <code>UIAdminUsuarios</code> | Endpoint: <code>PUT /admin/usuarios/deshabilitar?id=X</code></p>
+                    </div>
+                    <form id="form-deshabilitar" class="admin-form">
+                        <div class="form-group">
+                            <label for="usuario-id">ID del Usuario a Deshabilitar</label>
+                            <input type="number" id="usuario-id" placeholder="Ingrese ID único..." min="1" required>
+                        </div>
+                        <button type="submit" class="btn btn-danger">🚫 Deshabilitar Usuario</button>
+                    </form>
+
+                    <div id="response-deshabilitar" class="response-box"></div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
