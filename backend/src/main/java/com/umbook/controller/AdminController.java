@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class AdminController {
     private final AdminService adminService;
 
-    @PutMapping({"/deshabilitar/{id}"})
+    @PutMapping({"/deshabilitar?id={id}"})
     public ResponseEntity<?> deshabilitarUsuario(@PathVariable("id") Long id) {
         try {
             this.adminService.deshabilitarUsuario(id);
