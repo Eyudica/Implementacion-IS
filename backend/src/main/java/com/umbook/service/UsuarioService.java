@@ -15,8 +15,10 @@ public class UsuarioService {
 
     public void deshabilitarUsuario(Long id) {
         Usuario usuario = this.findById(id);
-        usuario.setActivo(false);
-        this.usuarioRepository.save(usuario);
+        if (usuario != null) {
+            new com.umbook.model.entity.Admin().deshabilitarUsuario(usuario);
+            this.usuarioRepository.save(usuario);
+        }
     }
 
     public Usuario findById(Long id) {
