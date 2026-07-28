@@ -19,7 +19,7 @@ public class NotificacionService {
         Notificacion notificacion = Notificacion.builder().destinatario(destinatario).tipo(tipo).referenciaId(referenciaId).leida(false).build();
         this.notificacionRepository.save(notificacion);
         if (tipo == TipoNotificacion.SOLICITUD_AMISTAD && referenciaId != null) {
-            Optional var10000 = this.solicitudAmistadRepository.findById(referenciaId);
+            java.util.Optional<com.umbook.model.entity.SolicitudAmistad> var10000 = this.solicitudAmistadRepository.findById(referenciaId);
             JavaMailService var10001 = this.mailService;
             Objects.requireNonNull(var10001);
             var10000.ifPresent(var10001::enviarEmailSolicitudAmistad);

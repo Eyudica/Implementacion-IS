@@ -21,9 +21,16 @@ public class SolicitudAmistadService {
         if (destinatario == null) {
             throw new UsuarioNotFoundException(destinatarioId);
         } else {
-            this.solicitudRepository.findByRemitenteAndDestinatario(remitente, destinatario).ifPresent((s) -> {
-                throw new ExistentRequestException("Ya hay una solicitud pendiente o ya son amigos");
-            });
+            // Check if they are already friends (status ACEPTADA)
+            if (!this.solicitudRepository.findByUsuariosAndEstado(remitente, destinatario, EstadoSolicitud.ACEPTADA).isEmpty()) {
+                throw new com.umbook.exception.AlreadyFriendsException("Ya son amigos");
+            }
+            
+            // Check if there is an existing pending request
+            if (!this.solicitudRepository.findByUsuariosAndEstado(remitente, destinatario, EstadoSolicitud.PENDIENTE).isEmpty()) {
+                throw new ExistentRequestException("Ya hay una solicitud pendiente");
+            }
+
             String token = this.generarTokenEmail();
             SolicitudAmistad solicitud = SolicitudAmistad.builder().remitente(remitente).destinatario(destinatario).estado(EstadoSolicitud.PENDIENTE).tokenEmail(token).build();
             solicitud.enviar();

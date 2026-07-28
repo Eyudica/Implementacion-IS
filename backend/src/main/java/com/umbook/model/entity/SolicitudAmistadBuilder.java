@@ -51,12 +51,12 @@ public class SolicitudAmistadBuilder {
     public SolicitudAmistad build() {
         EstadoSolicitud estado = this.estado;
         if (!this.estado$set) {
-            estado = SolicitudAmistad.estado();
+            estado = SolicitudAmistad.$default$estado();
         }
 
         LocalDateTime fechaEnvio$value = this.fechaEnvio$value;
         if (!this.fechaEnvio) {
-            fechaEnvio$value = SolicitudAmistad.fechaEnvio();
+            fechaEnvio$value = SolicitudAmistad.$default$fechaEnvio();
         }
 
         return new SolicitudAmistad(this.id, this.remitente, this.destinatario, estado, fechaEnvio$value, this.tokenEmail);
@@ -64,6 +64,6 @@ public class SolicitudAmistadBuilder {
 
     public String toString() {
         Long var10000 = this.id;
-        return "SolicitudAmistad.SolicitudAmistadBuilder(id=" + var10000 + ", remitente=" + String.valueOf(this.remitente) + ", destinatario=" + String.valueOf(this.destinatario) + ", estado$value=" + String.valueOf(this.estado$value) + ", fechaEnvio$value=" + String.valueOf(this.fechaEnvio$value) + ", tokenEmail=" + this.tokenEmail + ")";
+        return "SolicitudAmistad.SolicitudAmistadBuilder(id=" + var10000 + ", remitente=" + String.valueOf(this.remitente) + ", destinatario=" + String.valueOf(this.destinatario) + ", estado=" + String.valueOf(this.estado) + ", fechaEnvio$value=" + String.valueOf(this.fechaEnvio$value) + ", tokenEmail=" + this.tokenEmail + ")";
     }
 }

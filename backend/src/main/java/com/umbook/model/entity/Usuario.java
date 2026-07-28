@@ -39,7 +39,7 @@ public class Usuario {
     public boolean activo;
     private int diasCumpleanosConfig;
 
-    private static boolean activo() {
+    static boolean $default$activo() {
         return true;
     }
 
@@ -120,7 +120,7 @@ public class Usuario {
     }
 
     public Usuario() {
-        this.activo = activo();
+        this.activo = $default$activo();
     }
 
     public Usuario(final Long id, final String nombre, final String apellido, final String email, final String nombreUsuario, final String contrasena, final LocalDate fechaNacimiento, final boolean activo, final int diasCumpleanosConfig) {

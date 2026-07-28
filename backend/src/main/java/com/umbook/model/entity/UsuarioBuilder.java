@@ -66,7 +66,7 @@ public class UsuarioBuilder {
     public Usuario build() {
         boolean activo$value = this.activo$value;
         if (!this.activo$set) {
-            activo$value = Usuario.activo();
+            activo$value = Usuario.$default$activo();
         }
 
         return new Usuario(this.id, this.nombre, this.apellido, this.email, this.nombreUsuario, this.contrasena, this.fechaNacimiento, activo$value, this.diasCumpleanosConfig);

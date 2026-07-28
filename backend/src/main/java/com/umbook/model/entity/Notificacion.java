@@ -42,11 +42,11 @@ public class Notificacion {
     public void enviarEmail() {
     }
 
-    private static boolean leida() {
+    static boolean $default$leida() {
         return false;
     }
 
-    private static LocalDateTime fechaCreacion() {
+    static LocalDateTime $default$fechaCreacion() {
         return LocalDateTime.now();
     }
 
@@ -103,8 +103,8 @@ public class Notificacion {
     }
 
     public Notificacion() {
-        this.leida = leida();
-        this.fechaCreacion = fechaCreacion();
+        this.leida = $default$leida();
+        this.fechaCreacion = $default$fechaCreacion();
     }
 
     public Notificacion(final Long id, final Usuario destinatario, final TipoNotificacion tipo, final boolean leida, final LocalDateTime fechaCreacion, final Long referenciaId) {

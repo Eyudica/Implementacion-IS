@@ -51,12 +51,12 @@ public class NotificacionBuilder {
     public Notificacion build() {
         boolean leida = this.leida$value;
         if (!this.leida$set) {
-            leida = Notificacion.leida();
+            leida = Notificacion.$default$leida();
         }
 
         LocalDateTime fechaCreacion$value = this.fechaCreacion$value;
         if (!this.fechaCreacion$set) {
-            fechaCreacion$value = Notificacion.fechaCreacion();
+            fechaCreacion$value = Notificacion.$default$fechaCreacion();
         }
 
         return new Notificacion(this.id, this.destinatario, this.tipo, leida$value, fechaCreacion$value, this.referenciaId);

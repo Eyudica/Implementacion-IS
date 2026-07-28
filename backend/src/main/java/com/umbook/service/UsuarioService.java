@@ -20,7 +20,7 @@ public class UsuarioService {
     }
 
     public Usuario findById(Long id) {
-        return (Usuario)this.usuarioRepository.findById(id).orElse((Object)null);
+        return this.usuarioRepository.findById(id).orElse(null);
     }
 
     public UsuarioService(final UsuarioRepository usuarioRepository) {

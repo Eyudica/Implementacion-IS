@@ -58,11 +58,11 @@ public class SolicitudAmistad {
         return "https://umbook.com/solicitudes/confirmar?token=" + this.tokenEmail;
     }
 
-    private static EstadoSolicitud $default$estado() {
+    static EstadoSolicitud $default$estado() {
         return EstadoSolicitud.PENDIENTE;
     }
 
-    private static LocalDateTime $default$fechaEnvio() {
+    static LocalDateTime $default$fechaEnvio() {
         return LocalDateTime.now();
     }
 
